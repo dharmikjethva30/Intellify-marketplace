@@ -4,7 +4,7 @@ const auth = require("../middlewares/auth")
 
 const farmer_route = express.Router()
 
-farmer_route.get('/getNPKpH',auth, getNPKpH)
+farmer_route.get('/getNPKpH', getNPKpH)
 farmer_route.get('/requestReport',auth, requestReport)
 
 
