@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const cookie = require('cookie-parser')
 const cors = require('cors')
+const PORT = process.env.PORT || 3000;
+
 
 const user_router = require('./routes/user')
 const product_router = require('./routes/product')
@@ -42,7 +44,7 @@ app.get('/allProducts', async(req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
+app.listen(PORT, () => {
+    console.log('Server Started');
     connect()
 });
