@@ -6,6 +6,9 @@ const cors = require('cors')
 
 const user_router = require('./routes/user')
 const product_router = require('./routes/product')
+const farmer_router = require('./routes/farmer')
+const lab_router = require('./routes/lab')
+
 const product = require('./models/product')
 
 
@@ -30,19 +33,13 @@ const connect = () => {
 
 app.use('/user', user_router)
 app.use('/product', product_router)
+app.use('/farm', farmer_router)
+app.use('/lab', lab_router)
 
-app.get('/', async(req, res) => {
+app.get('/allProducts', async(req, res) => {
     const data = await product.find()
     res.status(200).json(data)
 })
-
-
-
-
-
-
-
-
 
 
 app.listen(3000, () => {
