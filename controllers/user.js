@@ -35,7 +35,7 @@ const login = async (req, res) => {
             return res.status(400).json('Wrong password')
         }
         const token = jwt.sign({name : User.name, phone: User.phone, email : User.email }, process.env.JWT_SECRET)
-        res.cookie("access_token", token, { httpOnly: true }).send({ status: "logged in successfully !" })
+        res.send({ status: "logged in successfully !", access_token : token })
     } catch (error) {
         res.status(500).json(error)
     }
