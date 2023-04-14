@@ -2,9 +2,9 @@ const  jwt = require('jsonwebtoken')
 
 
 const auth = (req, res, next) => {
-
+    let token
     if ( req.headers.authorization && req.headers.authorization.split(" ")[0] === "Bearer" ) {
-        const token = req.headers.authorization.split(" ")[1];
+        token = req.headers.authorization.split(" ")[1];
     }
     else{
         res.status(400).send("Invalid Token!")
