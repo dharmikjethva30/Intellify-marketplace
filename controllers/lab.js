@@ -22,10 +22,11 @@ const fulfillReport = async (req, res) => {
             Potassium: req.body.Potassium,
             pH: req.body.pH
         });
-        await reportToBeFulfilled.save();
+        await Report.save();
 
         res.status(200).json({message: "Report fulfilled successfully"});
     } catch (error) {
+        console.log(error);
         res.status(400).json(error);
     }
 }
