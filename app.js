@@ -37,6 +37,11 @@ app.use('/product', product_router)
 app.use('/farm', farmer_router)
 app.use('/lab', lab_router)
 
+app.get('/allProducts', async(req, res) => {
+    const data = await product.find()
+    res.status(200).json(data)
+})
+
 //global error handler
 app.use((req, res) => {
     if (req.err) {
@@ -47,10 +52,7 @@ app.use((req, res) => {
     }
 })
 
-app.get('/allProducts', async(req, res) => {
-    const data = await product.find()
-    res.status(200).json(data)
-})
+
 
 
 
