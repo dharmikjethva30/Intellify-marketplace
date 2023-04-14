@@ -1,6 +1,5 @@
 const product = require('../models/product')
 
-
 const addProduct = async (req, res) => {
     const {name, price, description, image, category} = req.body
     try {
@@ -31,8 +30,5 @@ const myProducts = async (req, res) => {
         res.status(400).json(error)
     }
 }
-
-
-
 
 module.exports = {addProduct, myProducts}

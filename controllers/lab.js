@@ -1,7 +1,6 @@
 const report = require('../models/report');
 
 //get report which are not fulfilled
-
 const getUnfulfilledReports = async (req, res) => {
     try {
         const reports = await report.find({ isFulfilled :false });
@@ -12,7 +11,6 @@ const getUnfulfilledReports = async (req, res) => {
 }
 
 //fulfill report
-
 const fulfillReport = async (req, res) => {
     try {
         const {reportId} = req.body;

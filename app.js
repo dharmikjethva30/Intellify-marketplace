@@ -13,7 +13,6 @@ const lab_router = require('./routes/lab')
 
 const product = require('./models/product')
 
-
 const app = express();
 
 app.use(express.json())
@@ -37,6 +36,16 @@ app.use('/user', user_router)
 app.use('/product', product_router)
 app.use('/farm', farmer_router)
 app.use('/lab', lab_router)
+
+//global error handler
+app.use((req, res) => {
+    if (req.err) {
+        res.status(400).send({ error: req.err })
+    }
+    else {
+        res.status(404).send({ error: "404 page not found !"})
+    }
+})
 
 app.get('/allProducts', async(req, res) => {
     const data = await product.find()
